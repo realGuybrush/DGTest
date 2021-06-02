@@ -6,6 +6,7 @@ public class Snake : BaseFollow
 {
     public LayerMask land;
     public Camera mainCamera;
+    private bool alive = true;
 
     internal override void Init()
     {
@@ -16,14 +17,17 @@ public class Snake : BaseFollow
 
     internal override void UpdateActions()
     {
-        //CheckTouch();
-        CheckClicked();
-        if (follow)
+        if (alive)
         {
-            //CastRayToTouchPoint();
-            CastRayToClickPoint();
+            //CheckTouch();
+            CheckClicked();
+            if (follow)
+            {
+                //CastRayToTouchPoint();
+                CastRayToClickPoint();
+            }
+            Follow();
         }
-        Follow();
     }
 
     void CheckTouch()
@@ -64,5 +68,11 @@ public class Snake : BaseFollow
         RaycastHit[] hit = Physics.RaycastAll(ray, 100f, land);
         if (hit.Length > 0)
             SetFollowPoint(hit[0].point);
+    }
+
+    public void Die()
+    {
+        alive = false;
+        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
     }
 }

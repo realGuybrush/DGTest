@@ -25,7 +25,7 @@ public class Mouth : MonoBehaviour
         {
             for (int i = 0; i < coneHits.Length; i++)
             {
-                if (coneHits[i].collider.gameObject == collision.gameObject)
+                if (coneHits[i].collider?.gameObject == collision.gameObject)
                 {
                     if (collision.gameObject.GetComponent<Renderer>().material.color == this.gameObject.GetComponent<Renderer>().material.color)
                     {
@@ -33,7 +33,7 @@ public class Mouth : MonoBehaviour
                     }
                     else
                     {
-                        Destroy(this.gameObject);
+                        this.GetComponent<Snake>().Die();
                     }
                 }
             }

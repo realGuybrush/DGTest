@@ -15,17 +15,19 @@ public class Follower : BaseFollow
     internal override void UpdateActions()
     {
         if (head != null)
+        {
             SetFollowPoint(head.position);
-        Follow();
+            Follow();
+        }
     }
     internal override void Follow()
     {
         float diffX = pointToFollow.x - transform.position.x;
-        float diffZ = (pointToFollow.z - transform.position.z)/baseDiffZ;
+        float diffZ = (pointToFollow.z - transform.position.z);
         if (Mathf.Abs(diffX) > 1.0f)
             diffX = Mathf.Sign(diffX);
-        if (diffZ < baseDiffZ)
-            diffZ = Mathf.Sign(diffZ);
+        if ((diffZ > baseDiffZ) && (diffZ < 1))
+            diffZ = 1;
         body.velocity = new Vector3(velocityX * diffX, 0.0f, velocityZ * diffZ);
     }
 }
