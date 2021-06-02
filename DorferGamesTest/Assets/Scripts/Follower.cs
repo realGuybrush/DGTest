@@ -4,75 +4,44 @@ using UnityEngine;
 
 public class Follower : MonoBehaviour
 {
-    public float velocity;
-    public LayerMask land;
-    public Camera mainCamera;
+    public float velocityZ;
+    public float velocityX;
     internal Vector2 pointToFollow;
-    Rigidbody body;
-    bool follow = false;
-    // Start is called before the first frame update
+    internal Rigidbody body;
+    internal bool follow = true;
+    public Follower tail;
+
     void Start()
+    {
+        Init();
+    }
+
+    void Update()
+    {
+        UpdateActions();
+    }
+
+    internal virtual void Init()
     {
         body = this.GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    internal virtual void UpdateActions()
     {
-        CheckClicked();
-        CheckTouch();
         Follow();
     }
+
     public void SetFollowPoint(Vector2 newFollow)
     {
         pointToFollow = newFollow;
     }
-    void CheckTouch()
-    {
-        if (Input.touchCount > 0)
-        {
-            follow = true;
-        }
-        if (Input.touchCount == 0)
-        {
-            follow = false;
-        }
-    }
-    public void CheckClicked()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            follow = true;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            follow = false;
-        }
-    }
 
-    void Follow()
+    internal void Follow()
     {
-        //CastRayToTouchPoint();
-        CastRayToClickPoint();
         float diff = transform.position.x - pointToFollow.x;
         if (Mathf.Abs(diff) > 1.0f)
             diff = Mathf.Sign(diff);
-        body.velocity = new Vector3( -velocity*diff, 0.0f, velocity);
-    }
-
-    void CastRayToClickPoint()
-    {
-        Ray ray = mainCamera.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
-        RaycastHit[] hit = Physics.RaycastAll(ray, 100f, land);
-        if (hit.Length > 0)
-            SetFollowPoint(hit[0].point);
-    }
-
-    void CastRayToTouchPoint()
-    {
-        Ray ray = mainCamera.ScreenPointToRay(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 0f));
-        RaycastHit[] hit = Physics.RaycastAll(ray, 100f, land);
-        if (hit.Length > 0)
-            SetFollowPoint(hit[0].point);
+        body.velocity = new Vector3( -velocityX*diff, 0.0f, velocityZ);
+        tail?.SetFollowPoint(transform.position);
     }
 }
