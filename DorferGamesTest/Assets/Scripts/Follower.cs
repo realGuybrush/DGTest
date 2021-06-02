@@ -2,46 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Follower : MonoBehaviour
+public class Follower : BaseFollow
 {
-    public float velocityZ;
-    public float velocityX;
-    internal Vector2 pointToFollow;
-    internal Rigidbody body;
-    internal bool follow = true;
-    public Follower tail;
+    public Transform head;
+    private float baseDiffZ;
 
-    void Start()
+    internal override void Init()
     {
-        Init();
+        baseDiffZ = Mathf.Abs(head.position.z - transform.position.z);
+        base.Init();
     }
-
-    void Update()
+    internal override void UpdateActions()
     {
-        UpdateActions();
-    }
-
-    internal virtual void Init()
-    {
-        body = this.GetComponent<Rigidbody>();
-    }
-
-    internal virtual void UpdateActions()
-    {
+        if (head != null)
+            SetFollowPoint(head.position);
         Follow();
     }
-
-    public void SetFollowPoint(Vector2 newFollow)
+    internal override void Follow()
     {
-        pointToFollow = newFollow;
-    }
-
-    internal void Follow()
-    {
-        float diff = transform.position.x - pointToFollow.x;
-        if (Mathf.Abs(diff) > 1.0f)
-            diff = Mathf.Sign(diff);
-        body.velocity = new Vector3( -velocityX*diff, 0.0f, velocityZ);
-        tail?.SetFollowPoint(transform.position);
+        float diffX = pointToFollow.x - transform.position.x;
+        float diffZ = (pointToFollow.z - transform.position.z)/baseDiffZ;
+        if (Mathf.Abs(diffX) > 1.0f)
+            diffX = Mathf.Sign(diffX);
+        if (diffZ < baseDiffZ)
+            diffZ = Mathf.Sign(diffZ);
+        body.velocity = new Vector3(velocityX * diffX, 0.0f, velocityZ * diffZ);
     }
 }

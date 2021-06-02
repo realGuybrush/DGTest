@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Snake : Follower
+public class Snake : BaseFollow
 {
     public LayerMask land;
     public Camera mainCamera;
@@ -11,6 +11,7 @@ public class Snake : Follower
     {
         base.Init();
         follow = false;
+        //gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
     }
 
     internal override void UpdateActions()
