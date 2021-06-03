@@ -27,9 +27,13 @@ public class Mouth : MonoBehaviour
             {
                 if (coneHits[i].collider?.gameObject == collision.gameObject)
                 {
-                    if (collision.gameObject.GetComponent<Renderer>().material.color == this.gameObject.GetComponent<Renderer>().material.color)
+                    Consumable collisionConsumable = collision.gameObject.GetComponent<Consumable>();
+                    if ((collisionConsumable!=null)&&
+                        ((collision.gameObject.GetComponent<Renderer>().material.color == this.gameObject.GetComponent<Renderer>().material.color)
+                        ||
+                        (collisionConsumable.type == ConsumableType.Crystal)))
                     {
-                        Destroy(collision.gameObject);
+                        collisionConsumable.GetEaten();
                     }
                     else
                     {

@@ -6,10 +6,10 @@ public class DeadlyObstacle : MonoBehaviour
 {
     public void OnCollisionEnter(Collision collision)
     {
-        Snake potentioalSnake = collision.gameObject.GetComponent<Snake>();
-        if (potentioalSnake != null)
+        Snake potentialSnake = collision.gameObject.GetComponent<Snake>();
+        if (potentialSnake != null)
         {
-            potentioalSnake.Die();
+            potentialSnake.Die();
         }
     }
 }
