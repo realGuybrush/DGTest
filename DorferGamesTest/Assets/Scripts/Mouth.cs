@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Mouth : MonoBehaviour
 {
+    public EdibleCounter counter;
     public float coneWidth;
     public LayerMask edibles;
     private Physics p;
     private RaycastHit[] coneHits;
+    public bool fever = false;
 
     void Update()
     {
@@ -28,12 +30,14 @@ public class Mouth : MonoBehaviour
                 if (coneHits[i].collider?.gameObject == collision.gameObject)
                 {
                     Consumable collisionConsumable = collision.gameObject.GetComponent<Consumable>();
-                    if ((collisionConsumable!=null)&&
+                    if (fever||
+                        ((collisionConsumable!=null)&&
                         ((collision.gameObject.GetComponent<Renderer>().material.color == this.gameObject.GetComponent<Renderer>().material.color)
                         ||
-                        (collisionConsumable.type == ConsumableType.Crystal)))
+                        (collisionConsumable.type == ConsumableType.Crystal))))
                     {
                         collisionConsumable.GetEaten();
+                        counter.Increase(collisionConsumable.type);
                     }
                     else
                     {

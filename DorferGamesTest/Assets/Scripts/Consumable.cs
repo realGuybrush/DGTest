@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ConsumableType { Human, Crystal }
+public enum ConsumableType { Human, Crystal, Obstacle }
 
 public class Consumable : MonoBehaviour
 {

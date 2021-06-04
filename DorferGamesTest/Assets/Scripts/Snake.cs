@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Snake : BaseFollow
 {
     public LayerMask land;
     public Camera mainCamera;
+    private Mouth mouth;
     private bool alive = true;
+    private bool fever = false;
 
     internal override void Init()
     {
         base.Init();
         follow = false;
+        mouth = this.gameObject.GetComponent<Mouth>();
         //gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
     }
 
@@ -19,12 +23,19 @@ public class Snake : BaseFollow
     {
         if (alive)
         {
-            //CheckTouch();
-            CheckClicked();
-            if (follow)
+            if (fever)
             {
-                //CastRayToTouchPoint();
-                CastRayToClickPoint();
+                SetFollowPoint(new Vector3(0, 0, 0));
+            }
+            else
+            {
+                //CheckTouch();
+                CheckClicked();
+                if (follow)
+                {
+                    //CastRayToTouchPoint();
+                    CastRayToClickPoint();
+                }
             }
             Follow();
         }
@@ -68,6 +79,15 @@ public class Snake : BaseFollow
         RaycastHit[] hit = Physics.RaycastAll(ray, 100f, land);
         if (hit.Length > 0)
             SetFollowPoint(hit[0].point);
+    }
+
+    public async void Fever()
+    {
+        fever = true;
+        mouth.fever = true;
+        await Task.Delay(5000);
+        fever = false;
+        mouth.fever = false;
     }
 
     public void Die()

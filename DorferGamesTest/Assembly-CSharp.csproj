@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\PaitingFog.cs" />
     <Compile Include="Assets\Scripts\DeadlyObstacle.cs" />
     <Compile Include="Assets\Scripts\Consumable.cs" />
+    <Compile Include="Assets\Scripts\EdibleCounter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
