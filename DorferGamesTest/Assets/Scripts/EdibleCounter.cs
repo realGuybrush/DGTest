@@ -41,4 +41,9 @@ public class EdibleCounter : MonoBehaviour
         }
     }
 
+    public void DropCounter(ConsumableType type)
+    {
+        consumed[(int)type] = 0;
+    }
+
 }

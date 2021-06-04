@@ -85,9 +85,14 @@ public class Snake : BaseFollow
     {
         fever = true;
         mouth.fever = true;
+        velocityX *= 3;
+        velocityZ *= 3;
         await Task.Delay(5000);
         fever = false;
         mouth.fever = false;
+        velocityX /= 3;
+        velocityZ /= 3;
+        mouth.counter.DropCounter(ConsumableType.Crystal);
     }
 
     public void Die()
