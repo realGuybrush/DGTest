@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Mouth : MonoBehaviour
@@ -7,6 +8,7 @@ public class Mouth : MonoBehaviour
     public EdibleCounter counter;
     public float coneWidth;
     public LayerMask edibles;
+    public Animator anim;
     private Physics p;
     private RaycastHit[] coneHits;
     public bool fever = false;
@@ -23,6 +25,7 @@ public class Mouth : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        bool eating = false;
         if (coneHits.Length > 0)
         {
             for (int i = 0; i < coneHits.Length; i++)
@@ -38,6 +41,7 @@ public class Mouth : MonoBehaviour
                     {
                         collisionConsumable.GetEaten();
                         counter.Increase(collisionConsumable.type);
+                        eating = true;
                     }
                     else
                     {
@@ -46,5 +50,15 @@ public class Mouth : MonoBehaviour
                 }
             }
         }
+        if (eating)
+            Eat();
     }
+
+    async void Eat()
+    {
+        anim.SetBool("Eating", true);
+        await Task.Delay(500);
+        anim.SetBool("Eating", false);
+    }
+
 }

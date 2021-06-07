@@ -56,16 +56,18 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Consumable.cs" />
+    <Compile Include="Assets\Scripts\PaitingFog.cs" />
     <Compile Include="Assets\Scripts\ConeCastExtension.cs" />
     <Compile Include="Assets\Scripts\Follower.cs" />
     <Compile Include="Assets\Scripts\Snake.cs" />
+    <Compile Include="Assets\Scripts\EdibleCounter.cs" />
     <Compile Include="Assets\Scripts\Mouth.cs" />
+    <Compile Include="Assets\Scripts\HumanRandomAnim.cs" />
+    <Compile Include="Assets\Scripts\DeadlyObstacle.cs" />
     <Compile Include="Assets\Scripts\BaseFollow.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
-    <Compile Include="Assets\Scripts\PaitingFog.cs" />
-    <Compile Include="Assets\Scripts\DeadlyObstacle.cs" />
-    <Compile Include="Assets\Scripts\Consumable.cs" />
-    <Compile Include="Assets\Scripts\EdibleCounter.cs" />
+    <Compile Include="Assets\Scripts\Finish.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

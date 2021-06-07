@@ -8,7 +8,7 @@ public class Snake : BaseFollow
     public LayerMask land;
     public Camera mainCamera;
     private Mouth mouth;
-    private bool alive = true;
+    //private bool alive = true;
     private bool fever = false;
 
     internal override void Init()
@@ -21,24 +21,21 @@ public class Snake : BaseFollow
 
     internal override void UpdateActions()
     {
-        if (alive)
+        if (fever)
         {
-            if (fever)
-            {
-                SetFollowPoint(new Vector3(0, 0, 0));
-            }
-            else
-            {
-                //CheckTouch();
-                CheckClicked();
-                if (follow)
-                {
-                    //CastRayToTouchPoint();
-                    CastRayToClickPoint();
-                }
-            }
-            Follow();
+            SetFollowPoint(new Vector3(0, 0, 0));
         }
+        else
+        {
+            //CheckTouch();
+            CheckClicked();
+            if (follow)
+            {
+                //CastRayToTouchPoint();
+                CastRayToClickPoint();
+            }
+        }
+        Follow();
     }
 
     void CheckTouch()

@@ -9,15 +9,23 @@ public class BaseFollow : MonoBehaviour
     internal Vector3 pointToFollow;
     internal Rigidbody body;
     internal bool follow = true;
+    static internal bool alive = true;
 
     void Start()
     {
         Init();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        UpdateActions();
+        if (alive)
+        {
+            UpdateActions();
+        }
+        else
+        {
+            body.velocity = new Vector3(0f, 0f, 0f);
+        }
     }
 
     internal virtual void Init()

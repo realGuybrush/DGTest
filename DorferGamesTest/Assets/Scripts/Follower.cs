@@ -26,8 +26,8 @@ public class Follower : BaseFollow
         float diffZ = (pointToFollow.z - transform.position.z);
         if (Mathf.Abs(diffX) > 1.0f)
             diffX = Mathf.Sign(diffX);
-        if ((diffZ > baseDiffZ) && (diffZ < 1))
-            diffZ = 1;
+        if (diffZ < baseDiffZ)
+            diffZ = 0;
         body.velocity = new Vector3(velocityX * diffX, 0.0f, velocityZ * diffZ);
     }
 }
