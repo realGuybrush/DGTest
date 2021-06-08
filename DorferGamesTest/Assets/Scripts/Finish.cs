@@ -9,7 +9,7 @@ public class Finish : MonoBehaviour
         Snake possibleSnake = collider.gameObject.GetComponent<Snake>();
         if (possibleSnake != null)
         {
-            possibleSnake.Die();
+            possibleSnake.Die(false);
         }
     }
 }

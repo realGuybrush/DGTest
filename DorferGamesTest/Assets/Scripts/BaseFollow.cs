@@ -9,7 +9,7 @@ public class BaseFollow : MonoBehaviour
     internal Vector3 pointToFollow;
     internal Rigidbody body;
     internal bool follow = true;
-    static internal bool alive = true;
+    static internal bool alive = false;
 
     void Start()
     {

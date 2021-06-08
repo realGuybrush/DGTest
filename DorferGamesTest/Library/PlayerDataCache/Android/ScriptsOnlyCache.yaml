@@ -27,6 +27,7 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
@@ -103,6 +104,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3120}
     - Class: 114
       Script: {instanceID: 3372}
+    - Class: 114
+      Script: {instanceID: 3508}
     - Class: 114
       Script: {instanceID: 3684}
     - Class: 115
@@ -346,7 +349,7 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: f71273e8773a3f6ee4788b0568a87d7f
+      Hash: 53905b8534623d82283509ee72737d79
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Snake
@@ -436,7 +439,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: 9d5a81a3128da7249f042c19c19455bd
+      Hash: a48c3c491025e1a97d17409df5345ad4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager

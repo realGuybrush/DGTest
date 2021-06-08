@@ -9,6 +9,7 @@ public class Snake : BaseFollow
     public Camera mainCamera;
     private Mouth mouth;
     private bool fever = false;
+    public UIManager ui;
 
     internal override void Init()
     {
@@ -89,10 +90,23 @@ public class Snake : BaseFollow
         velocityZ /= 3;
         mouth.counter.DropCounter(ConsumableType.Crystal);
     }
+    public void Live()
+    {
+        alive = true;
+    }
 
-    public void Die()
+    public void Die(bool lose=true)
     {
         alive = false;
         gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        if (lose)
+        {
+            ui.SetMessage("Dead.");
+        }
+        else
+        {
+            ui.SetMessage("Victory!");
+        }
+        ui.Restart();
     }
 }
