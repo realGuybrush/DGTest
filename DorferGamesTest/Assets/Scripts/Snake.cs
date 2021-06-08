@@ -27,11 +27,9 @@ public class Snake : BaseFollow
         else
         {
             CheckTouch();
-            //CheckClicked();
             if (follow)
             {
                 CastRayToTouchPoint();
-                //CastRayToClickPoint();
             }
         }
         Follow();
@@ -47,26 +45,6 @@ public class Snake : BaseFollow
         {
             follow = false;
         }
-    }
-
-    public void CheckClicked()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            follow = true;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            follow = false;
-        }
-    }
-
-    void CastRayToClickPoint()
-    {
-        Ray ray = mainCamera.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
-        RaycastHit[] hit = Physics.RaycastAll(ray, 100f, land);
-        if (hit.Length > 0)
-            SetFollowPoint(hit[0].point);
     }
 
     void CastRayToTouchPoint()
