@@ -8,7 +8,6 @@ public class Snake : BaseFollow
     public LayerMask land;
     public Camera mainCamera;
     private Mouth mouth;
-    //private bool alive = true;
     private bool fever = false;
 
     internal override void Init()
@@ -16,7 +15,6 @@ public class Snake : BaseFollow
         base.Init();
         follow = false;
         mouth = this.gameObject.GetComponent<Mouth>();
-        //gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
     }
 
     internal override void UpdateActions()

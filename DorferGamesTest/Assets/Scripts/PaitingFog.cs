@@ -6,9 +6,11 @@ public class PaitingFog : MonoBehaviour
 {
     public void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.GetComponent<Snake>()!=null)
+        if (collider.gameObject.GetComponent<BaseFollow>()!=null)
         {
-            collider.gameObject.GetComponent<Renderer>().material = this.gameObject.GetComponent<Renderer>().material;
+            Renderer rend = collider.gameObject.GetComponent<Renderer>();
+            if(rend!=null)
+                rend.material = this.gameObject.GetComponent<Renderer>().material;
         }
     }
 }

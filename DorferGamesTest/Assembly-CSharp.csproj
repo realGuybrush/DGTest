@@ -65,9 +65,10 @@
     <Compile Include="Assets\Scripts\Mouth.cs" />
     <Compile Include="Assets\Scripts\HumanRandomAnim.cs" />
     <Compile Include="Assets\Scripts\DeadlyObstacle.cs" />
+    <Compile Include="Assets\Scripts\Finish.cs" />
     <Compile Include="Assets\Scripts\BaseFollow.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
-    <Compile Include="Assets\Scripts\Finish.cs" />
+    <Compile Include="Assets\Scripts\ConeChecker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

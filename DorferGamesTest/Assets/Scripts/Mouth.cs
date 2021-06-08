@@ -6,42 +6,31 @@ using UnityEngine;
 public class Mouth : MonoBehaviour
 {
     public EdibleCounter counter;
-    public float coneWidth;
-    public LayerMask edibles;
     public Animator anim;
-    private Physics p;
-    private RaycastHit[] coneHits;
+    public ConeChecker checker;
     public bool fever = false;
 
-    void Update()
-    {
-        CheckConeInFront();
-    }
-
-    void CheckConeInFront()
-    {
-        coneHits = p.ConeCastAll(transform.position, 5f, transform.forward, 2f, coneWidth, edibles);
-    }
-
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider collider)
     {
         bool eating = false;
-        if (coneHits.Length > 0)
+        if (checker.coneHits.Count > 0)
         {
-            for (int i = 0; i < coneHits.Length; i++)
+            for (int i = 0; i < checker.coneHits.Count; i++)
             {
-                if (coneHits[i].collider?.gameObject == collision.gameObject)
+                if (checker.coneHits[i]?.gameObject == collider.gameObject)
                 {
-                    Consumable collisionConsumable = collision.gameObject.GetComponent<Consumable>();
+                    Consumable collisionConsumable = collider.gameObject.GetComponent<Consumable>();
                     if (fever||
                         ((collisionConsumable!=null)&&
-                        ((collision.gameObject.GetComponent<Renderer>().material.color == this.gameObject.GetComponent<Renderer>().material.color)
+                        ((collider.gameObject.GetComponent<Renderer>().material.color == this.gameObject.GetComponent<Renderer>().material.color)
                         ||
                         (collisionConsumable.type == ConsumableType.Crystal))))
                     {
                         collisionConsumable.GetEaten();
                         counter.Increase(collisionConsumable.type);
                         eating = true;
+                        checker.coneHits.RemoveAt(i);
+                        i--;
                     }
                     else
                     {
@@ -50,7 +39,7 @@ public class Mouth : MonoBehaviour
                 }
             }
         }
-        if (eating)
+        if (eating && (anim != null))
             Eat();
     }
 
