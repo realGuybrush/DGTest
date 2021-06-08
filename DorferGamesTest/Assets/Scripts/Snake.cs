@@ -25,12 +25,12 @@ public class Snake : BaseFollow
         }
         else
         {
-            //CheckTouch();
-            CheckClicked();
+            CheckTouch();
+            //CheckClicked();
             if (follow)
             {
-                //CastRayToTouchPoint();
-                CastRayToClickPoint();
+                CastRayToTouchPoint();
+                //CastRayToClickPoint();
             }
         }
         Follow();
