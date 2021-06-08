@@ -12017,6 +12017,10 @@ PrefabInstance:
       propertyPath: counter
       value: 
       objectReference: {fileID: 1294570405}
+    - target: {fileID: 6465990345205851600, guid: 47468b29911058f4ea876af8721e4eb8, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: eafa8ad9e1bb8b3488d5fbc0056661d0, type: 2}
     - target: {fileID: 6465990345205851603, guid: 47468b29911058f4ea876af8721e4eb8, type: 3}
       propertyPath: m_RootOrder
       value: 11
