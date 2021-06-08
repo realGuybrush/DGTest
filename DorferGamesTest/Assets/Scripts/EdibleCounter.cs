@@ -46,4 +46,14 @@ public class EdibleCounter : MonoBehaviour
         consumed[(int)type] = 0;
     }
 
+    public int GetCrystals()
+    {
+        return consumed[(int)ConsumableType.Crystal];
+    }
+
+    public int GetHumans()
+    {
+        return consumed[(int)ConsumableType.Human];
+    }
+
 }
