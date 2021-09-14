@@ -356,7 +356,7 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: 53905b8534623d82283509ee72737d79
+      Hash: 654b4f207bf4c8a489f89225c505b6f9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Snake
