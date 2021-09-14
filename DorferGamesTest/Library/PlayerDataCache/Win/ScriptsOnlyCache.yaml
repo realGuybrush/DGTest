@@ -17,10 +17,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -29,6 +27,7 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
@@ -80,7 +79,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1770}
     - Class: 114
-      Script: {instanceID: 1824}
+      Script: {instanceID: 1822}
+    - Class: 114
+      Script: {instanceID: 1970}
     - Class: 114
       Script: {instanceID: 2216}
     - Class: 114
@@ -94,22 +95,24 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2648}
     - Class: 114
-      Script: {instanceID: 2828}
+      Script: {instanceID: 2662}
     - Class: 114
-      Script: {instanceID: 3052}
+      Script: {instanceID: 2830}
     - Class: 114
-      Script: {instanceID: 3118}
+      Script: {instanceID: 3054}
     - Class: 114
-      Script: {instanceID: 3370}
+      Script: {instanceID: 3120}
     - Class: 114
-      Script: {instanceID: 3682}
+      Script: {instanceID: 3372}
     - Class: 114
-      Script: {instanceID: 145774}
+      Script: {instanceID: 3508}
     - Class: 114
-      Script: {instanceID: 310782}
+      Script: {instanceID: 3684}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 134
       Script: {instanceID: 0}
     - Class: 135
       Script: {instanceID: 0}
@@ -282,6 +285,12 @@ ScriptsOnlyBuild:
     className: PositionAsUV1
   - hash:
       serializedVersion: 2
+      Hash: e586a660828cfa950ccf351ce30f0a71
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ConeChecker
+  - hash:
+      serializedVersion: 2
       Hash: 87ff43d2baf3385cba327d8f803a4ebb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -342,7 +351,7 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: f71273e8773a3f6ee4788b0568a87d7f
+      Hash: 53905b8534623d82283509ee72737d79
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Snake
@@ -430,6 +439,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: a48c3c491025e1a97d17409df5345ad4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIManager
   - hash:
       serializedVersion: 2
       Hash: ef5c43f921427d03730f6ea4c848f07d
@@ -622,19 +637,7 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraMovement
-  - hash:
-      serializedVersion: 2
-      Hash: e586a660828cfa950ccf351ce30f0a71
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ConeChecker
-  - hash:
-      serializedVersion: 2
-      Hash: 9d5a81a3128da7249f042c19c19455bd
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UIManager
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Laptop/Desktop/DGTest/DorferGamesTest/Build/DorferGamesTest.exe
+  playerPath: C:/Users/Laptop/Desktop/DGTest/DorferGamesTest/Build/LastPCBuild/DorferGamesTest.exe

@@ -12,6 +12,7 @@ ScriptsOnlyBuild:
     - PaitingFog
     - Snake
     - UIManager
+    - UIPositionChange
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -108,6 +109,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3508}
     - Class: 114
       Script: {instanceID: 3684}
+    - Class: 114
+      Script: {instanceID: 324554}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -117,6 +120,8 @@ ScriptsOnlyBuild:
     - Class: 135
       Script: {instanceID: 0}
     - Class: 136
+      Script: {instanceID: 0}
+    - Class: 137
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -441,7 +446,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: a48c3c491025e1a97d17409df5345ad4
+      Hash: cd79d74ad05fb192667e619e1310ae28
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
@@ -637,7 +642,13 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraMovement
+  - hash:
+      serializedVersion: 2
+      Hash: 9103b826b96fbc83abd3691029e06963
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIPositionChange
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Laptop/Desktop/DGTest/DorferGamesTest/Build/AndroidBuild/DorferGamesTest.apk
+  playerPath: C:/Users/Laptop/Desktop/AttemptsTpFindWork/DGTest/DorferGamesTest/Build/LikeFinalBuild/SnakeOnCapsules.apk

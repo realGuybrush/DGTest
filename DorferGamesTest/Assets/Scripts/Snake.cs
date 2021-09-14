@@ -7,7 +7,7 @@ public class Snake : BaseFollow
 {
     public LayerMask land;
     public Camera mainCamera;
-    private Mouth mouth;
+    public Mouth mouth;
     private bool fever = false;
     public UIManager ui;
 
@@ -15,7 +15,6 @@ public class Snake : BaseFollow
     {
         base.Init();
         follow = false;
-        mouth = this.gameObject.GetComponent<Mouth>();
     }
 
     internal override void UpdateActions()
@@ -26,10 +25,12 @@ public class Snake : BaseFollow
         }
         else
         {
+            //CheckClicked();
             CheckTouch();
             if (follow)
             {
                 CastRayToTouchPoint();
+                //CastRayToClickPoint();
             }
         }
         Follow();
@@ -47,9 +48,29 @@ public class Snake : BaseFollow
         }
     }
 
+    public void CheckClicked()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            follow = true;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            follow = false;
+        }
+    }
+
     void CastRayToTouchPoint()
     {
         Ray ray = mainCamera.ScreenPointToRay(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 0f));
+        RaycastHit[] hit = Physics.RaycastAll(ray, 100f, land);
+        if (hit.Length > 0)
+            SetFollowPoint(hit[0].point);
+    }
+
+    void CastRayToClickPoint()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
         RaycastHit[] hit = Physics.RaycastAll(ray, 100f, land);
         if (hit.Length > 0)
             SetFollowPoint(hit[0].point);
