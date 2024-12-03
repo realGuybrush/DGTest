@@ -1,7 +1,6 @@
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Threading.Tasks;
 
 public class UIManager : MonoBehaviour
 {
