@@ -1,0 +1,1 @@
+﻿public enum ConsumableType { Human, Crystal, Obstacle, Finish }
